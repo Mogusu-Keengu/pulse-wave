@@ -54,7 +54,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-3 sm:flex">
             <Show when="signed-out">
               <SignInButton mode="modal">
-                <button className="text-sm font-medium text-gray-700 hover:text-gray-900">
+                <button className="text-sm font-medium text-blue-600 hover:text-blue-800">
                   Sign in
                 </button>
               </SignInButton>
