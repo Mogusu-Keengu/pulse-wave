@@ -53,7 +53,7 @@ export default function Hero() {
               Shows: device worn on neck + remote + folded device
             */}
             <div className="flex h-[380px] w-full max-w-[520px] items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white text-sm text-gray-400">
-              Hero image (520×460)
+              Hero image (5200×4600)
             </div>
           </div>
         </div>
