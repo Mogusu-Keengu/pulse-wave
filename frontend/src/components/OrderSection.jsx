@@ -1,22 +1,24 @@
 const BOX_CONTENTS = [
-  'EMS Butterfly Massager Unit',
-  'Self-Adhesive Butterfly Gel Patch',
-  'USB-C Charging Cable',
-  'User Manual (EN/ES/FR)',
-]
+  "EMS Butterfly Massager Unit",
+  "Self-Adhesive Butterfly Gel Patch",
+  "USB-C Charging Cable",
+  "User Manual (EN/ES/FR)",
+];
 
 const TRUST_BADGES = [
-  { label: '30-Day Money Back' },
-  { label: 'Secure Checkout' },
-  { label: 'Fast Shipping' },
-]
+  { label: "30-Day Money Back" },
+  { label: "Secure Checkout" },
+  { label: "Fast Shipping" },
+];
 
 export default function OrderSection() {
   return (
     <section className="bg-white py-20">
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
-          <span className="text-xs font-medium text-blue-600">Limited Offer</span>
+          <span className="text-xs font-medium text-blue-600">
+            Limited Offer
+          </span>
           <h2 className="mt-3 text-3xl font-semibold text-gray-900 sm:text-4xl">
             Order today. Feel better tomorrow.
           </h2>
@@ -28,14 +30,20 @@ export default function OrderSection() {
             Product + accessories flat-lay image
             Recommended size: ~380x300px
           */}
-          <div className="flex h-[300px] w-full items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50 text-sm text-gray-400">
-            Product bundle image (380×300)
+          <div className="flex h-[300px] w-full items-center justify-center overflow-hidden rounded-2xl bg-gray-50">
+            <img
+              src="https://res.cloudinary.com/dumscqrjj/image/upload/v1789539337/image4_elwbws.png"
+              alt="PulseWave EMS bundle with charging cable and gel pads"
+              className="h-full w-full object-contain"
+            />
           </div>
 
           {/* Price + CTA */}
           <div>
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-semibold text-gray-900">$39.00</span>
+              <span className="text-3xl font-semibold text-gray-900">
+                $39.00
+              </span>
               <span className="text-lg text-gray-400 line-through">$78.00</span>
               <span className="rounded-full bg-blue-600 px-2.5 py-1 text-xs font-medium text-white">
                 50% OFF
@@ -51,7 +59,10 @@ export default function OrderSection() {
               </p>
               <ul className="mt-3 space-y-2">
                 {BOX_CONTENTS.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-gray-700"
+                  >
                     <span className="text-blue-600">✓</span>
                     {item}
                   </li>
@@ -72,5 +83,5 @@ export default function OrderSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

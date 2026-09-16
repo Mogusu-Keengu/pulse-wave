@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-gray-900">
+          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-blue-600">
             {/* placeholder logo mark — swap for real icon/image */}
             <span className="h-3 w-3 rounded-sm bg-white" />
           </span>
