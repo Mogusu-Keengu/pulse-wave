@@ -72,14 +72,12 @@ export default function Features() {
 
           {/* Right: device image placeholder */}
           <div className="flex justify-center">
-            {/*
-              Device close-up image
-              Recommended size: ~340x420px, portrait
-            */}
-            <div className="flex h-[380px] w-full max-w-[340px] items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50 text-sm text-gray-400">
-              Device image (340×420)
-            </div>
-          </div>
+  <img
+    src="https://res.cloudinary.com/dumscqrjj/image/upload/v1789539337/image2_hsanpj.png"
+    alt="PulseWave EMS device with LED touchscreen display"
+    className="w-full max-w-[340px] rounded-2xl border border-gray-200"
+  />
+</div>
         </div>
 
         {/* Feature cards */}

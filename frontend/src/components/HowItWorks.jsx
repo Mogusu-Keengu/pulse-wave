@@ -4,21 +4,24 @@ const STEPS = [
     title: 'Attach',
     description:
       'Peel and press the self-adhesive butterfly pad onto any target area — neck, lower back, shoulder, arm, or leg.',
-    imageLabel: 'Attach step image (280×200)',
+    image: 'https://res.cloudinary.com/dumscqrjj/image/upload/v1789539337/image2_hsanpj.png',
+    alt: 'Attaching the PulseWave EMS pad to skin',
   },
   {
     number: '02',
     title: 'Select',
     description:
       'Power on and navigate the LED touchscreen to choose from 8 massage modes and 19 intensity levels.',
-    imageLabel: 'Select step image (280×200)',
+    image: 'https://res.cloudinary.com/dumscqrjj/image/upload/v1789539337/image3_fuaksa.png',
+    alt: 'Selecting a massage mode on the LED touchscreen',
   },
   {
     number: '03',
     title: 'Relax',
     description:
       'Sit back as the 15-minute automated session delivers targeted pulse therapy for fast pain relief and improved circulation.',
-    imageLabel: 'Relax step image (280×200)',
+    image: 'https://res.cloudinary.com/dumscqrjj/image/upload/v1789541298/hero.update_p362hy.png',
+    alt: 'Person relaxing while using the PulseWave EMS device',
   },
 ]
 
@@ -35,10 +38,15 @@ export default function HowItWorks() {
           {STEPS.map((step) => (
             <div key={step.number} className="rounded-xl bg-white p-4 shadow-sm">
               {/*
-                Step image placeholder — swap with real photo/screenshot
+                Step image — fixed-height box, object-contain so nothing
+                gets cropped regardless of each photo's own aspect ratio
               */}
-              <div className="flex h-[180px] w-full items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 text-sm text-gray-400">
-                {step.imageLabel}
+              <div className="flex h-[180px] w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
+                <img
+                  src={step.image}
+                  alt={step.alt}
+                  className="h-full w-full object-contain"
+                />
               </div>
 
               <div className="mt-4 flex items-center gap-2">
