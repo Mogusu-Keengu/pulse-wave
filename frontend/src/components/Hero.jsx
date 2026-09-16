@@ -1,9 +1,10 @@
+import  heroImage from '../assets/hero.section.png'
 const STATS = [
-  { value: '8', label: 'Modes' },
-  { value: '19', label: 'Intensity Levels' },
-  { value: '15', label: 'Min Sessions' },
-  { value: '65', label: 'Grams' },
-]
+  { value: "8", label: "Modes" },
+  { value: "19", label: "Intensity Levels" },
+  { value: "15", label: "Min Sessions" },
+  { value: "65", label: "Grams" },
+];
 
 export default function Hero() {
   return (
@@ -48,12 +49,16 @@ export default function Hero() {
           {/* Right: hero image placeholder */}
           <div className="flex justify-center">
             {/*
-              Hero product image
-              Recommended size: ~520x460px, roughly 8:7 ratio
-              Shows: device worn on neck + remote + folded device
-            */}
-            <div className="flex h-[380px] w-full max-w-[520px] items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white text-sm text-gray-400">
-              Hero image (520×460)
+          Hero product image
+          Recommended size: ~520x460px, roughly 8:7 ratio
+          Shows: device worn on neck + remote + folded device
+        */}
+            <div className="h-[260px] w-full max-w-[520px] overflow-hidden rounded-2xl border border-gray-200 bg-white sm:h-[380px]">
+              <img
+                src='https://res.cloudinary.com/dumscqrjj/image/upload/v1789541298/hero.update_p362hy.png'
+                alt="PulseWave EMS device worn on neck with remote and folded unit"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -65,12 +70,14 @@ export default function Hero() {
               key={stat.label}
               className="rounded-xl border border-gray-200 bg-white py-6 text-center"
             >
-              <div className="text-2xl font-semibold text-gray-900">{stat.value}</div>
+              <div className="text-2xl font-semibold text-gray-900">
+                {stat.value}
+              </div>
               <div className="mt-1 text-xs text-gray-500">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
