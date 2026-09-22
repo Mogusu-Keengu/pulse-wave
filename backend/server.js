@@ -40,16 +40,16 @@ app.use(express.json())
 // via getAuth(req) / requireAuth() in your route middleware.
 app.use(clerkMiddleware())
 
-app.get('/', (req, res) => {
-  res.status(200).json({ message: "API working hello" });
-});
+// app.get('/', (req, res) => {
+//   res.status(200).json({ message: "API working hello" });
+// });
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok' })
 })
 
 app.use('/api/auth', authRoutes)
-app.use('/api/product', productRoutes)
+app.use('/api/products', productRoutes)
 
 // Keep these two LAST — order matters:
 // notFound catches any request that didn't match a route above,

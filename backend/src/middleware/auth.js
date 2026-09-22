@@ -1,25 +1,26 @@
-import { requireAuth as clerkRequireAuth, getAuth } from '@clerk/express'
+import { getAuth } from '@clerk/express'
 import User from '../models/User.js'
 
 /**
- * Blocks the request unless the incoming request has a valid Clerk session
- * (checked via the Authorization header / session cookie that Clerk's
- * frontend SDK attaches automatically). If there's no valid session, Clerk
- * responds with 401 before your route handler ever runs.
+ * Checks for a valid Clerk session using getAuth(req) — this relies on
+ * clerkMiddleware() (mounted globally in app.js) already having run and
+ * attached auth info to the request.
  *
- * Usage: router.get('/me', requireAuth, attachUser, controllerFn)
+ * Unlike Clerk's own requireAuth() helper, this always returns a clean
+ * 401 JSON response when there's no valid session — it never redirects.
+ * That matters here because this is an API, not a browser app; a 302
+ * redirect is meaningless to a tool like Insomnia or a fetch() call.
  */
-export const requireAuth = clerkRequireAuth()
+export function requireAuth(req, res, next) {
+  const { userId } = getAuth(req)
 
-/**
- * Runs AFTER requireAuth. Looks up the matching MongoDB user document using
- * the Clerk user id from the verified session, and attaches it to req.user
- * so downstream controllers don't have to repeat this lookup.
- *
- * If no matching document exists yet (e.g. the webhook hasn't fired yet,
- * or ran into an issue), we fail clearly rather than silently continuing
- * with an undefined user.
- */
+  if (!userId) {
+    return res.status(401).json({ error: 'Authentication required.' })
+  }
+
+  next()
+}
+
 export async function attachUser(req, res, next) {
   try {
     const { userId } = getAuth(req)
@@ -39,9 +40,6 @@ export async function attachUser(req, res, next) {
   }
 }
 
-/**
- * Gate for admin-only routes. Must run after requireAuth + attachUser.
- */
 export function requireAdmin(req, res, next) {
   if (req.user?.role !== 'admin') {
     return res.status(403).json({ error: 'Admin access required.' })
