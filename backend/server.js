@@ -54,6 +54,7 @@ app.use('/api/products', productRoutes)
 // Keep these two LAST — order matters:
 // notFound catches any request that didn't match a route above,
 // errorHandler catches anything that called next(err) anywhere in the app.
+// added explanation on server.js
 app.use(notFound)
 app.use(errorHandler)
 
